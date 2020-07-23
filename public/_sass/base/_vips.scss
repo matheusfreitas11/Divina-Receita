@@ -1,0 +1,135 @@
+/* Vips Section */
+.links{
+  text-align: center;
+  }
+  .links a {
+  color: white;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0 16px;
+  text-decoration: none;
+  }
+  .links a:hover{
+  color: red;
+  transition: color 200ms;
+  }
+.page_title {
+    @include flex;
+    @include maxWidth;
+    width: 90%;
+    justify-content: space-between;
+    margin: auto;
+  
+    h1 {
+      color: var(--dark-text);
+      font-size: 2.5rem;
+      margin: 36px 0;
+    }
+  }
+  
+  .recipe_box {
+    @include maxWidth;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: auto;
+  
+    .recipe {
+      img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 15px;
+        margin-bottom: 20px;
+      }
+  
+      h3 {
+        color: var(--dark-text);
+        font-size: 1.8rem;
+        line-height: 2.1rem;
+        font-weight: normal;
+        margin-bottom: 5px;
+      }
+  
+      p {
+        color: var(--light-text);
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+      }
+  
+      a {
+        color: var(--accent);
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-top: 15px;
+        text-decoration: none;
+      }
+    }
+  }
+  
+  
+.register_form {
+  width: 500px;
+  margin: 100px auto 50px;
+  position: relative;
+  text-align: center;
+
+  @include breakpoint(phone) {
+    margin: 50px auto;
+    width: 90%;
+  }
+
+  .form_header {
+    justify-content: center;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    margin: 35px 0 10px;
+    text-align: left;
+  }
+
+  a {
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .fields {
+    input {
+      @include inputForm;
+      width: 500px;
+      height: 49px;
+
+      @include breakpoint(phone) {
+        width: 100%;
+      }
+    }
+  }
+
+  .action {
+    @include flex;
+    justify-content: space-between;
+    margin-top: 35px;
+
+    a {
+      color: var(--light-text);
+      font-size: 1.6rem;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  .recover {
+    @include flex;
+    justify-content: space-between;
+    margin-top: 35px;
+  }
+}
+

@@ -1,0 +1,46 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+
+  <section class="chef_profile adm">
+
+    <div class="chef">
+      {% if session.admin %}
+
+        <div class="page_title">
+          <h1>Chef Premium:
+            {{vip.apelido}}
+          </h1>
+          <a class="button" href="/admin/chefVips/{{vip.id}}/edit">Editar</a>
+        </div>
+
+      {% endif %}
+
+      <img src="{{image.src}}" alt="Imagem de {{vips.apelido}}"/>
+      <h2>{{vip.apelido}}</h2>
+      <p>{{vip.total_recipes}}
+        receitas</p>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="chef_recipes">
+      <h2>Receitas</h2>
+      <div class="recipe_box">
+        {% for recipe in recipes %}
+          {% if vip.id == recipe.vip_id %}
+            <div class="recipe">
+              <img src="{{recipe.src}}" alt="Imagem de {{recipe.title}}"/>
+              <div>
+                <h3>{{recipe.title}}</h3>
+                <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

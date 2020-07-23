@@ -1,0 +1,25 @@
+{% extends "../layout.njk" %}
+ 
+ {% block content %}
+
+  <form class="chef_form" method="POST" action="/admin/suporte" enctype="multipart/form-data">
+
+    <div class="form_header">
+      <h1>Envie seu Feedback</h1>
+    </div>
+
+    {% include "admin/suporte/fields.njk" %}
+
+
+    <div class="recover">
+      <a onclick="history.back()">
+        <span class="material-icons">
+          keyboard_backspace
+        </span>
+      </a>
+      <button class="save" style=" float:right"type="submit"  onclick="Validate.allFields(event)">Enviar</button>
+    </div>
+
+  </form>
+
+{% endblock content %}

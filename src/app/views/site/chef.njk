@@ -1,0 +1,43 @@
+{%extends "./layout.njk" %}
+
+{% block content %}
+
+  <section class="chef_profile">
+
+    <div>
+      <img src="{{image.src}}" alt="Imagem de {{chef.name}}"/>
+      <h2>{{chef.name}}</h2>
+      <p>{{chef.total_recipes}}
+        receitas</p>
+
+         
+    </div>
+
+  </section>
+
+  <section>
+    <div class="chef_recipes">
+      <h2>Receitas</h2>
+      <div class="recipe_box">
+        {% for recipe in recipes %}
+          {% if chef.id == recipe.chef_id %}
+            <div class="recipe">
+              <img src="{{recipe.src}}" alt="Imagem de {{recipe.title}}"/>
+              <div>
+                <h3>{{recipe.title}}</h3>
+                <a href="/recipes/{{recipe.id}}">Visualizar</a>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+    
+    <!--!
+    <h2>Curiosidades sobre o Chef</h2>
+    <p>{{chef.about}}</p> -->
+      </div>
+    </div>
+
+  </section>
+  
+
+{% endblock %}

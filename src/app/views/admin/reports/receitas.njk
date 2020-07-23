@@ -1,0 +1,38 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+  
+      
+    <body style="margin-bottom: 20px;">
+    <canvas style="height:500px; width:0px" class="line-chart"> </canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+     <script>
+      var ctx = document.getElementsByClassName("line-chart");
+      var myBarChart = new Chart(ctx, {
+        type: 'line', 
+        data: {
+          labels: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
+          datasets: [{
+            label: "Receitas",
+            data: {{ recipes }},
+            borderWidth: 3,
+            borderColor: 'rgba(6,204,6,0.85)',
+            backgroundColor:'transparent'
+            }
+          ]
+        },
+        options: {
+        title: {
+        display: true,
+        fontSize: 25,
+        text: "RECEITAS CADASTRADAS 2020"
+        }
+        }
+      });
+  
+    </script>
+      
+
+  </body>
+
+  {%endblock%}

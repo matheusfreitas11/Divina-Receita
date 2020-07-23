@@ -1,0 +1,56 @@
+<div  style ="margin-top: 100px" class="fields">
+
+
+<div>
+  <h3>Assunto *:</h3>
+  <select name="assunto">
+    {% for assunto in assuntos %}
+      <option value="{{assunto.id}}" {% if ouvidoria.assunto_id == assunto.id %} selected="selected" {% endif %}>
+        {{assunto.name}}
+      </option>
+    {% endfor %}
+  </select>
+</div>
+
+
+   <div>
+  <h3>Experiência em nosso site:</h3>
+    <div>
+     <input type="text" name="exp_site" value="{{ouvidoria.exp_site}}" placeholder=" ">
+  </div>
+
+    
+
+  <div>
+  <h3>Mensagem *:</h3>
+    <div>
+      <textarea name="elogio" value="{{ouvidoria.elogio}}"></textarea>
+    </div>
+  </div>
+    
+
+    <div>
+  <h3>Foto *:</h3>
+  <div class="upload_gallery">
+    <div  class="photos_upload">
+      <input class="photos_input" type="file" multiple="multiple" name="images" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+      <i class="material-icons">add</i>
+    </div>
+    <div class="photos_preview">
+      {% if ouvidoria.images %}
+        {% for image in ouvidoria.images %}
+          <div class="photo" id="{{image.id}}">
+            <img src="{{image.src}}" alt="{{image.name}}">
+            <i class="material-icons" onclick="PhotosUpload.removeOldImage(event)">close</i>
+          </div>
+        {% endfor %}
+        <input type="hidden" name="removed_files">
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+  <div>
+
+

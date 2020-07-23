@@ -1,0 +1,18 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+
+  <form class="recipe_form" method="POST" action="/admin/recipes" enctype="multipart/form-data">
+
+    <div class="form_header">
+      <h1>Criando receita</h1>
+      <button class="save" type="submit" onclick="Validate.allFields(event)">Salvar receita</button>
+    </div>
+
+    {% include "admin/recipes/fields.njk" %}
+
+  </form>
+
+<script src="/addNewField.js"></script>
+
+{% endblock content %}

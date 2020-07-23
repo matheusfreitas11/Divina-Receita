@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    {% include "./parts/styles.njk"%}
+
+    <title>Divina Receita</title>
+  </head>
+
+  <body>
+    <!-- Header -->
+
+    <section class="header adm">
+      <div class="navbar">
+        
+      
+        <img class="logo" src="/images/static/main-logo.png" alt="DivinaReceita Logo"/>
+     
+        <!-- Painel VIPs -->
+        <div class="links">
+           <!-- Painel ADM -->
+          {% if session.admin %}
+          <a href="/admin/users">Usuários</a>
+          <a href="/admin/recipes">Receitas</a>
+          <a href="/admin/chefs">Chefs</a>
+          <a href="/admin/chefVips">Chefs Premium</a>
+          <a href="/admin/reports">Relatórios</a>
+           <a href="/admin/pagamento">Pagamentos</a>
+        
+          {% elseif session.vips %}
+          <a href="/admin/profile">Minha conta</a>
+          <a href="/admin/videos">Videos</a>
+          <a href="/admin/recipesVips">Receitas</a>
+          <a href="/admin/suporte">Ouvidoria</a>
+     
+          {%else %}
+          <a href="/admin/profile">Minha conta</a>
+          <a href="/admin/vips">Seja Premium</a>
+             <a href="/admin/suporte">Ouvidoria</a>
+          {% endif %}
+
+           <!-- Painel ADM -->
+        </div>
+
+        {% if session.userId %}
+          <form action="/admin/logout" method="POST">
+            <button class="logout" type="submit">Sair</button>
+          </form>
+        {% else %}
+          <a class="login" href="/">Início</a>
+        {% endif %}
+
+      </div>
+    </section>
+
+    <!-- Nunjucks Content -->
+
+    {% include "./parts/messages.njk"%}
+
+    <section>
+
+      {% block content %}{% endblock %}
+
+    </section>
+
+    <!-- Footer -->
+
+    <section class="footer">
+      <p>Todos os direitos reservados, Receitas Divina Receita.</p>
+    </section>
+
+    <script src="/scripts.js"></script>
+  </body>
+</html>

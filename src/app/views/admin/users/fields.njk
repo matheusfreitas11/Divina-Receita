@@ -1,0 +1,27 @@
+<div class="fields">
+
+  <div>
+    <h3>Nome</h3>
+    <div>
+      <input type="text" name="name" value="{{user.name}}" placeholder="Digite o nome completo" required="required">
+    </div>
+  </div>
+
+  <div>
+    <h3>E-mail</h3>
+    <div>
+      <input type="email" name="email" value="{{user.email}}" onblur="Validate.apply(this, 'isEmail')" placeholder="Digite o e-mail" required="required">
+    </div>
+  </div>
+
+  <div class="checkbox">
+    <input type="checkbox" name="admin" value="true" {% if user.is_admin == true %} checked="checked" {% endif %}>
+    <p>Administrador</p>
+  </div>
+
+  
+  <div class="checkbox">
+    <input type="checkbox" name="vips" value="true" {% if user.is_vips == true %} checked="checked" {% endif %}>
+    <p>Usuário Premium</p>
+  </div>
+</div>

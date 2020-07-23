@@ -1,0 +1,44 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+
+  <section class="recipe_profile">
+
+    <div class="recipe">
+      <div class="page_title">
+        <h1>Comprovante de: 
+          {{pedido.vip_apelido}}
+        </h1>
+        {% if session.admin or session.userId == pedido.user_id %}
+          <a class="button" href="/admin/pagamento/{{pedido.id}}/edit">Editar</a>
+        {% endif %}
+      </div>
+
+      <div class="gallery">
+        <div class="highlight">
+          <img src="{{pedido.images[0].src}}" alt="Imagem de {{images[0].name}}" onclick="Lightbox.open()"/>
+          <div class="lightbox_target">
+            <div class="lightbox_img">
+              <img src="{{pedido.images[0].src}}" alt="Imagem de {{images[0].name}}">
+              <a href="#" class="lightbox_close">
+                <i class="material-icons" onclick="Lightbox.close()">close</i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="gallery_preview">
+          {% for image in pedido.images %}
+            <img src="{{image.src}}" alt="{{image.name}}" {% if loop.index0 == 0 %} {% endif %} onclick="ImageGallery.setImage(event)">
+          {% endfor %}
+        </div>
+      </div>
+      <p>Valor: {{pedido.valor}}  </p>
+      <br/>
+      <p>Data: {{pedido.created_at}} </p>
+    </div>
+
+  </section>
+
+{% endblock %}

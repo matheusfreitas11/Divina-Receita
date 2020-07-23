@@ -1,0 +1,73 @@
+{%extends "./layout.njk" %}
+
+{% block content %}
+
+  <section class="chef_profile">
+
+    <div>
+      <img src="{{image.src}}" alt="Imagem de {{vip.apelido}}"/>
+      <h2>{{vip.apelido}}</h2>
+      <p>{{vip.total_recipes}}
+        receitas</p>
+
+    </div>
+
+  </section>
+
+
+  <section class="about_box">
+
+    <div>
+    <h1>Informações:</h1>
+      <p>Sobre mim: {{vip.about_you}}</p>
+      <p>Anos de experiência: {{vip.anos_exp}}</p>
+      <p>Email de contato: {{vip.email}}</p>
+   <h1>Redes Sociais:</h1>
+   </div>
+  <a style="color: #777777; font-size: 18px;
+    line-height: 28px;
+ 
+    text-decoration: none; 
+    transition: color 200ms;" href="{{vip.facebook}}" target="_blank">Linkedin</a>
+    </div>
+
+<div style="">
+ <a  style="color: #777777; font-size: 18px;
+  line-height: 48px;
+
+  text-decoration: none; 
+  transition: color 200ms;" href="{{vip.instagram}}" target="_blank">Instagram</a>
+</div>
+
+
+      
+
+
+  </section>   
+
+  <section>
+    <div class="chef_recipes">
+      <h2>Receitas</h2>
+      <div class="recipe_box">
+        {% for recipe in recipes %}
+          {% if vip.id == recipe.vip_id %}
+            <div class="recipe">
+              <img src="{{recipe.src}}" alt="Imagem de {{recipe.title}}"/>
+              <div>
+                <h3>{{recipe.title}}</h3>
+                <a href="/recipes/{{recipe.id}}">Visualizar</a>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+    
+    <!--!
+    <h2>Curiosidades sobre o Chef</h2>
+    <p>{{chef.about}}</p> -->
+      </div>
+    </div>
+
+  </section>
+  
+
+{% endblock %}

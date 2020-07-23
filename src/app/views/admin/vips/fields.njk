@@ -1,0 +1,67 @@
+<div  style ="margin-top: 100px" class="fields">
+
+  <div>
+    <h3>Nome de Chef</h3>
+    <div>
+      <input type="text" name="apelido" value="{{vips.apelido}}" placeholder="Digite seu apelido ou nome" required="required">
+    </div>
+  </div>
+
+   <div>
+  <h3>Anos de experiência no mercado</h3>
+    <div>
+      <input type="text" name="anos_exp"value="{{vips.anos_exp}}"  placeholder="Ex: 20 anos">
+    </div>
+  </div>
+
+    <div>
+    <h3>Sobre você</h3>
+    <div>
+      <input type="text" name="about_you" value="{{vips.about_you}}" placeholder="Fale algo sobre você">
+    </div>
+  </div>
+
+    <div>
+    <h3>Linkedin</h3>
+    <div>
+      <input type="url" name="facebook" value="{{vips.facebook}}" placeholder="Ex: https://www.linkedin.com/in/divina-receita-91b77a15a/">
+    </div>
+   </div>
+    <div>
+    <h3>Instagram</h3>
+    <div>
+      <input type="url" name="instagram" value="{{vips.instagram}}" placeholder="Ex: https://www.instagram.com/divinareceita/">
+    </div>
+    </div>
+
+      <div>
+        <h3>E-mail profissional</h3>
+        <div>
+          <input type="email" name="email" value="{{vips.email}}" onblur="Validate.apply(this, 'isEmail')" placeholder="Digite seu e-mail de contato" required="required">
+        </div> 
+      </div>
+
+<div>
+  <h3>Sua Foto profissional</h3>
+  <div class="upload_gallery">
+    <div  class="photos_upload">
+      <input class="photos_input" type="file" multiple="multiple" name="images" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+      <i class="material-icons">add</i>
+    </div>
+    <div class="photos_preview">
+      {% if recipe.images %}
+        {% for image in recipe.images %}
+          <div class="photo" id="{{image.id}}">
+            <img src="{{image.src}}" alt="{{image.name}}">
+            <i class="material-icons" onclick="PhotosUpload.removeOldImage(event)">close</i>
+          </div>
+        {% endfor %}
+        <input type="hidden" name="removed_files">
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+  <div>
+
+

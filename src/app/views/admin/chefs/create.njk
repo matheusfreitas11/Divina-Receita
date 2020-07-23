@@ -1,0 +1,16 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+
+  <form class="chef_form" method="POST" action="/admin/chefs" enctype="multipart/form-data">
+
+    <div class="form_header">
+      <h1>Criando Chef</h1>
+      <button class="save" type="submit" onclick="Validate.allFields(event)">Salvar</button>
+    </div>
+
+    {% include "admin/chefs/fields.njk" %}
+
+  </form>
+
+{% endblock content %}

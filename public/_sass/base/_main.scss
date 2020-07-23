@@ -1,0 +1,372 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+/* Header Section */
+
+.header {
+  @include flex;
+  @include maxWidth;
+  width: 90%;
+  justify-content: space-between;
+  margin: 36px auto;
+
+  .navbar {
+    @include flex;
+
+    .logo {
+      margin-right: 122px;
+    }
+
+    .links {
+      a {
+        color: var(--dark-text);
+        font-size: 1.6rem;
+        margin-right: 30px;
+        text-decoration: none;
+        transition: all 150ms;
+
+        &:hover {
+          border-bottom: 2px solid var(--accent);
+        }
+      }
+    }
+
+    .active {
+      font-weight: bold;
+      border-bottom: 2px solid var(--accent);
+    }
+  }
+}
+
+/* Banner Section */
+
+.banner_box {
+  @include maxWidth;
+  width: 90%;
+  margin: auto;
+
+  .banner {
+    @include grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--bg-color);
+    border-radius: 30px;
+
+    .banner_info {
+      width: 316px;
+    }
+
+    h1 {
+      color: var(--dark-text);
+      font-size: 3.2rem;
+      line-height: 3.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--dark-text);
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      opacity: 0.7;
+    }
+
+    img {
+      margin-top: 66px;
+    }
+  }
+}
+
+/* About Section */
+
+.about_box {
+  @include maxWidth;
+  width: 90%;
+  margin: 0 auto;
+
+  h1 {
+    color: var(--dark-text);
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: var(--dark-text);
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: var(--light-text);
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    margin-bottom: 30px;
+  }
+}
+
+/* Paginate Section */
+
+.pagination {
+  margin: 100px auto 0;
+  text-align: center;
+
+  a {
+    color: var(--dark-text);
+    font-size: 1.6rem;
+    text-decoration: none;
+    margin-right: 15px;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+/* Footer Section */
+
+.footer {
+  background: #eeeeee;
+  width: 100%;
+  padding: 25px;
+  position: absolute;
+  bottom: 0;
+
+  p {
+    color: var(--light-text);
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
+
+/************************ Admin Style Section ************************/
+
+/* Header Section */
+
+.header.adm {
+  background-color: #111111;
+  max-width: 100%;
+  width: 100%;
+  padding: 30px 0;
+  margin: 0;
+
+  .navbar {
+    @include maxWidth;
+    width: 90%;
+    position: relative;
+    margin: auto;
+
+    .links {
+      @include breakpoint(phone) {
+        justify-content: center;
+      }
+
+      a {
+        color: #ffffff;
+        font-size: 1.5rem;
+        margin-right: 30px;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover {
+          border: none;
+        }
+
+        @include breakpoint(phone) {
+          margin-right: 45px;
+        }
+      }
+    }
+
+    .active {
+      border: none;
+    }
+  }
+
+  form {
+    position: absolute;
+    right: 0;
+    width: fit-content;
+
+    @include breakpoint(phone) {
+      margin: 46px 5% 0 0;
+    }
+  }
+}
+
+/* Users Section */
+
+.user_box {
+  @include maxWidth;
+  @include grid;
+  width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  justify-items: stretch;
+  gap: 52px 200px;
+  margin: 30px auto;
+}
+
+.user {
+  color: var(--light-text);
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+
+  h3 {
+    color: var(--dark-text);
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: 4px;
+  }
+
+  h4 {
+    color: var(--light-text);
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 16px;
+  }
+
+  a {
+    color: var(--accent);
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 16px;
+  }
+
+  .remove {
+    color: #f55a5a;
+  }
+}
+
+/************************ Responsive Style Section ************************/
+
+html {
+  @include breakpoint(phone) {
+    font-size: 50%;
+  }
+
+  @include breakpoint(tablet) {
+    font-size: 55%;
+  }
+}
+
+/* Header Section */
+
+.header {
+  @include breakpoint(phone) {
+    flex-direction: column;
+  }
+
+  .navbar {
+    @include breakpoint(phone) {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .logo {
+      @include breakpoint(phone) {
+        margin: 0;
+      }
+
+      @include breakpoint(tablet) {
+        margin-right: 60px;
+      }
+    }
+
+    .links {
+      @include breakpoint(phone) {
+        @include flex;
+        width: 100%;
+        margin: 35px auto 0;
+        justify-content: space-evenly;
+      }
+
+      @include breakpoint(tablet) {
+        margin: 0;
+      }
+
+      a {
+        @include breakpoint(phone) {
+          margin-right: 0;
+        }
+
+        @include breakpoint(tablet) {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(phone) {
+    form {
+      @include flex;
+      width: 100%;
+      margin: 25px auto;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  @include breakpoint(tablet) {
+    form {
+      @include flex;
+      width: 40%;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Banner Section */
+
+.banner_box {
+  .banner {
+    @include breakpoint(phone) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    @include breakpoint(phablet) {
+      grid-template-columns: 1fr 1fr;
+      text-align: left;
+    }
+
+    .banner_info {
+      @include breakpoint(phone) {
+        margin-top: 30px;
+        width: 260px;
+      }
+
+      @include breakpoint(phablet) {
+        margin: 30px;
+      }
+    }
+
+    img {
+      @include breakpoint(phone) {
+        height: 250px;
+        margin-top: 40px;
+      }
+
+      @include breakpoint(phablet) {
+        height: 230px;
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<div class="fields">
+
+  <div>
+    <h3>Nome</h3>
+    <div>
+      <input type="text" name="name" value="{{user.name}}" placeholder="Digite seu nome" required="required">
+    </div>
+  </div>
+
+  <div>
+    <h3>E-mail</h3>
+    <div>
+      <input type="email" name="email" value="{{user.email}}" onblur="Validate.apply(this, 'isEmail')" placeholder="Digite seu e-mail" required="required">
+    </div>
+  </div>
+
+ <script language="JavaScript">
+ /*
+ A função Mascara tera como valores no argumento os dados inseridos no input (ou no evento onkeypress)
+ onkeypress="mascara(this, '## ####-####')"
+ onkeypress = chama uma função quando uma tecla é pressionada, no exemplo acima, chama a função mascara e define os valores do argumento na função
+ O primeiro valor é o this, é o Apontador/Indicador da Mascara, o '## ####-####' é o modelo / formato da mascara
+ no exemplo acima o # indica os números, e o - (hifen) o caracter que será inserido entre os números, ou seja, no exemplo acima o telefone ficara assim: 11-4000-3562
+ para o celular de são paulo o modelo deverá ser assim: '## #####-####' [11 98563-1254]
+ para o RG '##.###.###.# [40.123.456.7]
+ para o CPF '###.###.###.##' [789.456.123.10]
+ Ou seja esta mascara tem como objetivo inserir o hifen ou espaço automáticamente quando o usuário inserir o número do celular, cpf, rg, etc 
+
+ lembrando que o hifen ou qualquer outro caracter é contado tambem, como: 11-4561-6543 temos 10 números e 2 hifens, por isso o valor de maxlength será 12
+ <input type="text" name="telefone" onkeypress="mascara(this, '## ####-####')" maxlength="12">
+ neste código não é possivel inserir () ou [], apenas . (ponto), - (hifén) ou espaço
+ */
+
+ function mascara(t, mask){
+ var i = t.value.length;
+ var saida = mask.substring(1,0);
+ var texto = mask.substring(i)
+ if (texto.substring(0,1) != saida){
+ t.value += texto.substring(0,1);
+ }
+ }
+ </script>
+
+    <div>
+    <h3>CPF ou CNPJ</h3>
+    <div>
+      <input type="text" name="cpf_cnpj" 
+      value="{{user.cpf_cnpj}}" 
+      placeholder="Digite seu Cpf ou Cnpj"  
+      onkeydown="Mask.apply(this,'cpfCnpj')"
+      onblur="Validate.apply(this,'isCpfCnpj')">
+    </div>
+  </div>
+  
+  <div>
+    <h3>Telefone</h3>
+    <div>
+      <input type="text" name="telefone"value="{{user.telefone}}"  placeholder="Digite seu número"
+     onkeypress="mascara(this, '## #####-####')" maxlength="13"  >
+
+  
+    </div>
+  </div>
+ 
+
+  <div>
+    <h3>Senha</h3>
+    <div>
+      <input type="password" name="password" placeholder="Digite sua senha" minlength="8" maxlength="20">
+    </div>
+  </div>
+  
+
+  {% if not user.id %}
+    <div>
+      <h3>Repetir senha</h3>
+      <div>
+        <input type="password" name="passwordRepeat" placeholder="Repita sua senha"  minlength="8" maxlength="20">
+      </div>
+    </div>
+  {% endif %}
+</div>

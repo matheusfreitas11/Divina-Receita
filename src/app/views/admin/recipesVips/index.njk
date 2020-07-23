@@ -1,0 +1,30 @@
+{% extends "../layout.njk" %}
+{% block content %}
+
+  <div class="page_title">
+    <h1>Gerenciar Receitas</h1>
+      {% if session.userId %}
+    <a class="button" href="/admin/recipesVips/create">Nova Receita</a>
+            {% endif %}
+  </div>
+
+  <div class="recipe_box adm">
+    {% for recipe in recipes %}
+
+      <div class="recipe adm">
+        <img src="{{recipe.img}}" alt="Imagem de {{recipe.title}}"/>
+
+        <div>
+          <h3>{{recipe.title}}</h3>
+          <p>por
+            {{recipe.vip_apelido}}</p>
+          <a href="/admin/recipesVips/{{recipe.id}}">Visualizar</a>
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
+
+  <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}"></div>
+
+{% endblock %}

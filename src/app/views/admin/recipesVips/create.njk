@@ -1,0 +1,19 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+
+  <form class="recipe_form" method="POST" action="/admin/recipesVips" enctype="multipart/form-data">
+
+    <div class="form_header">
+      <h1>Criando receita</h1>
+
+      <button class="save" type="submit" onclick="Validate.allFields(event)">Salvar receita</button>
+    </div>
+    
+    {% include "admin/recipesVips/fieldsVip.njk" %}
+
+  
+
+  </form>
+
+{% endblock content %}

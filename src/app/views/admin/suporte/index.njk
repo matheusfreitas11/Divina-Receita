@@ -1,0 +1,30 @@
+{% extends "../layout.njk" %}
+{% block content %}
+
+  <div class="page_title">
+  {% if session.userId %}
+    <h1>Ouvidoria</h1>
+    <a class="button" href="/admin/suporte/create">Enviar</a>
+  {% endif %}
+  </div>
+
+  <div class="about_box">
+    <div>
+
+    
+      <p>
+       Envie seu feedback para nossa equipe, sugestões ou reclamações. Estamos tentando ao máximo procurar evoluir e trazer o máximo de conteúdo e qualidade para nossos usuários. 
+      </p>
+      <p>
+        Nós do Divina Receita estamos muito felizes por vocês estarem usando nosso site, se puder recomende para um amigo amante da cozinha, para conhecer receitas rápidas e fáceis de fazer. Divina Receita agradece sua ajuda :) 
+      </p>
+       <p>
+       E-mail para contato: divinareceita@hotmail.com </p>
+      <p>
+       Telefones para contato: (21) 97013-4430 && (21) 2413-9463. Respondemos via whatssap também.
+      </p>
+    </div>
+
+  
+{% endblock %}
+

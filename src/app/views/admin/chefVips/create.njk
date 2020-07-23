@@ -1,0 +1,24 @@
+{% extends "../layout.njk" %}
+ 
+ {% block content %}
+
+  <form class="register_form" method="POST" action="/admin/chefVips" enctype="multipart/form-data">
+
+    <div class="form_header">
+      <h1>Cadastrar um Chef Vip (Premium)</h1>
+    </div>
+
+    {% include "admin/chefVips/fields.njk" %}
+
+    <div class="recover">
+      <a onclick="history.back()">
+        <span class="material-icons">
+          keyboard_backspace
+        </span>
+      </a>
+      <button class="save" type="submit" onclick="Validate.allFields(event)">Finalizar</button>
+    </div>
+
+  </form>
+
+{% endblock content %}

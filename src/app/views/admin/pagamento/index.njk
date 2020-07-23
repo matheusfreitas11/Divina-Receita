@@ -1,0 +1,29 @@
+{% extends "../layout.njk" %}
+{% block content %}
+
+  <div class="page_title">
+  {% if session.userId %}
+    <h1>Entrada de Pagamentos</h1>
+    <a class="button" href="/admin/pagamento/create">Cadastrar</a>
+  {% endif %}
+  </div>
+
+  <div class="recipe_box adm">
+    {% for pedido in pedidos %}
+
+      <div class="recipe adm">
+        <img src="{{pedido.img}}" alt="Imagem de {{pedido.valor}}"/>
+
+        <div>
+          <h3>Valor: R$:{{pedido.valor}}</h3>
+          <p>Comprovante de {{pedido.vip_apelido}}  </p>
+          <a href="/admin/pagamento/{{pedido.id}}">Visualizar</a>
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
+
+  <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}"></div>
+
+{% endblock %}

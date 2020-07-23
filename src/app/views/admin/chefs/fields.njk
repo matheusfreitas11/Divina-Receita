@@ -1,0 +1,38 @@
+<div>
+  <h3>Nome</h3>
+  <div>
+    <input type="text" name="name" value="{{chef.name}}">
+  </div>
+</div>
+
+
+
+<div>
+  <h3>Imagem de Perfil</h3>
+  <div>
+    <div class="upload_gallery">
+      <div class="photos_upload">
+        <input class="photos_input" type="file" name="images" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+        <i class="material-icons">add</i>
+      </div>
+      <div class="photos_preview">
+        {% if files %}
+          {% for image in files %}
+            <div class="photo" id="{{image.file_id}}">
+              <img src="{{image.src}}" alt="{{image.name}}">
+              <i class="material-icons" onclick="PhotosUpload.removeOldImage(event)">close</i>
+            </div>
+          {% endfor %}
+          <input type="hidden" name="removed_files">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h3>Sobre o Chef</h3>
+  <div>
+     <textarea name="about" value="{{chef.about}}">{{chef.about}}</textarea>
+  </div>
+</div>

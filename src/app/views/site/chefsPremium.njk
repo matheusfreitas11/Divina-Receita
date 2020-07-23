@@ -1,0 +1,24 @@
+{%extends "./layout.njk" %}
+{% block content %}
+
+
+  <div class="chef_box">
+    {% for vip in vips %}
+
+      <div class="chef">
+        <a href="/chefPremium/{{vip.id}}">
+          <img src="{{vip.img}}" alt="Imagem de {{vip.apelido}}"/>
+        </a>
+
+        <div>
+          <h3>{{vip.apelido}}</h3>
+          <p>{{vip.total_recipes}}
+            receitas</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+
+{% endblock %}

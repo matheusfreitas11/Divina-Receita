@@ -1,0 +1,24 @@
+{% extends "../../site/layout.njk" %}
+
+{% block content %}
+
+  <form class="register_form" method="POST" action="/admin/register">
+
+    <div class="form_header">
+      <h1>Abra uma conta</h1>
+    </div>
+
+    {% include "admin/profile/fields.njk" %}
+
+    <div class="recover">
+      <a onclick="history.back()">
+        <span class="material-icons">
+          keyboard_backspace
+        </span>
+      </a>
+      <button class="save" type="submit">Cadastre-se</button>
+    </div>
+
+  </form>
+
+{% endblock content %}
