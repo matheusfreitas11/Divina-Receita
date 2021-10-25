@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center"> 
-	🚀 Trabalho de conclusão de curso 🚀
+	🚀 Utilizado como trabalho de conclusão de curso 🚀
 </h4>
 <p align="center">
  
